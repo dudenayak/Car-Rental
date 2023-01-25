@@ -10,7 +10,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1A9DF4;
+    background-color: #45A29E;
 }
 
 .container{
@@ -28,6 +28,14 @@ body{
     display: flex;
     align-items: center;
     height: 440px;
+    width: 200%;
+    transition: height 0.2s ease;
+}
+
+.container .cars{
+    display: flex;
+    align-items: center;
+    height: 700px;
     width: 200%;
     transition: height 0.2s ease;
 }
@@ -50,6 +58,11 @@ body{
     opacity: 0;
     transition: opacity 0.09s ease;
 }
+
+/* .container .cars{
+    opacity: 0;
+    transition: opacity 0.09s ease;
+} */
 .container.active .signup{
     opacity: 1;
     transition: opacity 0.2s ease;
@@ -71,7 +84,7 @@ body{
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color: #1A9DF4;
+    background-color: #45A29E;
     border-radius: 25px;
 }
 
@@ -96,7 +109,7 @@ body{
 }
 
 .input-field input:is(:focus, :valid){
-    border-bottom-color: #1A9DF4;
+    border-bottom-color: #45A29E;
 }
 
 .input-field i{
@@ -109,7 +122,7 @@ body{
 }
 
 .input-field input:is(:focus, :valid) ~ i{
-    color: #1A9DF4;
+    color: #45A29E;
 }
 
 .input-field i.icon{
@@ -135,7 +148,7 @@ body{
 
 .checkbox-content input{
     margin: 0 8px -2px 4px;
-    accent-color: #1A9DF4;
+    accent-color: #45A29E;
 }
 
 .form .text{
@@ -144,7 +157,7 @@ body{
 }
 
 .form a.text{
-    color: #1A9DF4;
+    color: #45A29E;
     text-decoration: none;
 }
 .form a:hover{
@@ -162,13 +175,13 @@ body{
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: #1A9DF4;
+    background-color: #45A29E;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .button input:hover{
-    background-color: #265df2;
+    background-color: #2c5654;
 }
 
 .form .login-signup{
