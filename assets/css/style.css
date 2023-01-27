@@ -167,6 +167,7 @@ body {
 \*-----------------------------------*/
 
 .container { padding-inline: 15px; }
+.car_container { padding-inline: 15px; }
 
 button, a { transition: var(--transition); }
 
@@ -257,6 +258,14 @@ button, a { transition: var(--transition); }
   justify-content: space-between;
   align-items: center;
 }
+
+.header .car_container {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 .header-actions {
   display: flex;
@@ -439,8 +448,9 @@ button, a { transition: var(--transition); }
 .featured-car-link:is(:hover, :focus) ion-icon { color: var(--carolina-blue); }
 
 .featured-car-list {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 20px;  
+  /* display: grid; */
+  grid-template-columns: minmax(1, 1fr);
   gap: 30px;
 }
 
@@ -876,6 +886,11 @@ button, a { transition: var(--transition); }
     margin-inline: auto;
   }
 
+  .car_container {
+    max-width: 540px;
+    margin-inline: auto;
+  }
+
 
 
   /**
@@ -923,6 +938,8 @@ button, a { transition: var(--transition); }
    */
 
   .container { max-width: 720px; }
+
+  .car_container { max-width: 720px; }
 
 
 
@@ -1050,6 +1067,8 @@ button, a { transition: var(--transition); }
 
   .container { max-width: 960px; }
 
+  .car_container { max-width: 960px; }
+
 
 
   /**
@@ -1057,6 +1076,8 @@ button, a { transition: var(--transition); }
    */
 
   .hero .container { width: 100%; }
+
+  .hero .car_container { width: 100%; }
 
 
 
@@ -1112,6 +1133,8 @@ button, a { transition: var(--transition); }
    */
 
   .container { max-width: 1170px; }
+
+  .car_container { max-width: 1170px; }
 
 
 

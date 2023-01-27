@@ -6,7 +6,7 @@
 }
 
 body{
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,16 +32,6 @@ body{
     transition: height 0.2s ease;
 }
 
-.container .cars{
-    display: flex;
-    align-items: center;
-    height: 800px;
-    width: 200%;
-    transition: height 0.2s ease;
-    /* margin-top: 100px; */
-}
-
-
 .container .form{
     width: 50%;
     padding: 30px;
@@ -59,11 +49,6 @@ body{
     opacity: 0;
     transition: opacity 0.09s ease;
 }
-
-/* .container .cars{
-    opacity: 0;
-    transition: opacity 0.09s ease;
-} */
 .container.active .signup{
     opacity: 1;
     transition: opacity 0.2s ease;
@@ -107,10 +92,6 @@ body{
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
-}
-
-.input-field input[type="file"]{
-  margin-top: 10px;
 }
 
 .input-field input:is(:focus, :valid){
@@ -193,4 +174,3 @@ body{
     margin-top: 30px;
     text-align: center;
 }
-
