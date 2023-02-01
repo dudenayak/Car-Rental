@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <title>Booking</title>
+</head>
+
+<div class="sides">
+    <section class="section featured-car">
+        <div class="car_container">
+
+            <div class="title-wrapper">
+                <h2 class="h2 section-title">Booking</h2>
+            </div>
+            <!-- </div> -->
+    </section>
+    <!-- <div class="form-container">
+        <form action="">
+            <div class="input-box">
+                <span>Pick-Up Date</span>
+                <input type="date" id="d1">
+            </div>
+            <div class="input-box">
+                <span>Return Date</span>
+                <input type="date" id="d2">
+            </div>
+            <input type="button" value="Calculate fare" class="button" onclick="booked()">
+            <p id="output"></p>
+        </form>
+    </div> -->
+</div>
+</div>
+
+<script>
+    function booked() {
+        var d1 = document.getElementById("d1").value;
+        var d2 = document.getElementById("d2").value;
+
+        // localStorage.setItem('pickup', pickupDate);
+        // localStorage.setItem('return', returnDate);
+        var dateOne = new Date(d1);
+        var dateTwo = new Date(d2);
+        var time = Math.abs(dateTwo - dateOne);
+        var days = Math.ceil(time / (1000 * 60 * 60 * 24));
+        document.getElementById("output").innerHTML = days;
+    }
+</script>
+
+<!-- <script>
+    function calculateDays() {
+        var pickupDate = document.getElementById("d1").value;
+        var returnDate = document.getElementById("d2").value;
+        const dateOne = new Date(d1);
+        const dateTwo = new Date(d2);
+        const time = Math.abs(dateTwo - dateOne);
+        const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+    }
+    console.log(calculateDays())
+</script> -->
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./booking.js"></script>
+
+</html>

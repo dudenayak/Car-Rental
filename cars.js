@@ -51,6 +51,29 @@ function checkEmpty() {
   );
 }
 
+var rentKey;
+var carDetails;
+const rent = function (key) {
+  // console.log('rent action triggered');
+  rentKey = key;
+  console.log(rentKey);
+  var idb = indexedDB.open('Cars', 1);
+  idb.onsuccess = function () {
+    var request = idb.result;
+    var transaction = request.transaction('CarsData', 'readwrite');
+    var store = transaction.objectStore('CarsData');
+    const data = store.get(rentKey);
+    // console.log(data);
+    data.onsuccess = function (event) {
+      // console.log(event.target.result);
+      carDetails = event.target.result;
+      console.log(carDetails);
+      localStorage.setItem('carDetails', JSON.stringify(carDetails));
+    };
+  };
+  location.href = 'booking.html';
+};
+
 function read() {
   var idb = indexedDB.open('Cars', 1);
   idb.onsuccess = function () {
@@ -63,6 +86,8 @@ function read() {
       if (curRes) {
         // console.log(curRes);
         car_container.innerHTML += `
+        
+    
         <ul class="featured-car-list">
         <li>
             <div class="featured-car-card" >
@@ -116,7 +141,7 @@ function read() {
                             <ion-icon name="heart-outline"></ion-icon>
                         </button>
 
-                        <button class="btn">Rent now</button>
+                        <button class="btn" onclick="rent(${curRes.key})">Rent now</button>
 
                     </div>
 
@@ -125,6 +150,8 @@ function read() {
             </div>
         </li>
     </ul>
+    
+  
         `;
         curRes.continue();
       }

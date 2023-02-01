@@ -99,8 +99,8 @@ const loginAction = function () {
       ) {
         console.log(currRes.value);
         window.location.href = './home.html';
-        currRes.continue();
       } else {
+        currRes.continue();
         console.log('Enter valid details');
       }
     };

@@ -23,7 +23,8 @@
   --pale-purple-pantone: hsl(262, 63%, 92%);
   --medium-sea-green: hsl(152, 63%, 43%);
   --lavender-blush: hsl(336, 35%, 92%);
-  --carolina-blue: #45A29E;
+  /* --carolina-blue: #45A29E; */
+  --carolina-blue: #fe5b3d;
   --columbia-blue: hsl(204, 92%, 90%);
   --alice-blue-1: hsl(216, 38%, 95%);
   --alice-blue-2: hsl(216, 75%, 97%);
@@ -33,9 +34,9 @@
   --deep-cerise: hsl(329, 63%, 52%);
   --eerie-black: hsl(210, 11%, 15%);
   --space-cadet: hsl(240, 22%, 25%);
-  --blue-jeans: #9acecb;
+  --blue-jeans: #ffffff;
   --slate-blue: hsl(262, 60%, 57%);
-  --beau-blue: #45A29E;
+  --beau-blue: #fe5b3d;
   --honey-dew: hsl(152, 48%, 89%);
   --mimi-pink: hsl(329, 63%, 90%);
   --red-salsa: hsl(0, 79%, 63%);
@@ -449,7 +450,7 @@ button, a { transition: var(--transition); }
 
 .featured-car-list {
   margin-bottom: 20px;  
-  /* display: grid; */
+  display: grid;
   grid-template-columns: minmax(1, 1fr);
   gap: 30px;
 }
@@ -501,7 +502,7 @@ button, a { transition: var(--transition); }
   font-size: var(--fs-6);
   font-weight: var(--fw-600);
   padding: 3px 12px;
-  border: 2px dashed #45A29E;
+  border: 2px dashed #fe5b3d;
   border-radius: var(--radius-14);
 }
 
@@ -1223,4 +1224,10 @@ button, a { transition: var(--transition); }
 
   .footer-list:last-of-type { width: 33.33%; }
 
+}
+
+/* INDEX */
+.sides{
+  display: flex; 
+  flex-direction: row;
 }
