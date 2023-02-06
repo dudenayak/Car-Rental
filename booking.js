@@ -1,15 +1,6 @@
-// console.log(JSON.parse(localStorage.getItem('carDetails')));
 var rentCar = JSON.parse(localStorage.getItem('carDetails'));
 var car_container = document.querySelector('.car_container');
-// var pickupDate = localStorage.getItem('pickup');
-// var returnDate = localStorage.getItem('return');
-// var d1 = document.getElementById('d1').value;
-// var d2 = document.getElementById('d2').value;
-// var dateOne = new Date(d1);
-// var dateTwo = new Date(d2);
-// var time = Math.abs(dateTwo - dateOne);
-// var days = Math.ceil(time / (1000 * 60 * 60 * 24));
-// function days
+var carKey = JSON.parse(localStorage.getItem('carKey'));
 function getItem() {
   if (rentCar.length != 0) {
     car_container.innerHTML = `
@@ -76,7 +67,7 @@ function getItem() {
     <h1 id="displayTotal">Your total fare is: ₹ </h1>    
 </section>
 <div class="form-container">
-<form action="">
+<form class="bookingForm" action="">
     <div class="input-box">
         <span>Pick-Up Date</span>
         <input type="date" id="d1">
@@ -96,22 +87,115 @@ function getItem() {
   }
 }
 getItem();
+
+// Calculating total fare of car rented
 var total = document.getElementById('displayTotal');
-const getDays = function () {
+var form = document.querySelector('.bookingForm');
+var getDays = function () {
   var d1 = document.getElementById('d1').value;
   var d2 = document.getElementById('d2').value;
   var dateOne = new Date(d1);
   var dateTwo = new Date(d2);
-  var time = Math.abs(dateTwo - dateOne);
-  var days = Math.ceil(time / (1000 * 60 * 60 * 24));
-  var totalPrice = parseInt(rentCar.carPrice) * 24 * days;
-  console.log(d1);
-  console.log(d2);
-  console.log(time);
-  console.log(totalPrice);
-  total.innerHTML = 'Your total fare is: ₹' + totalPrice;
+
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  var time = dateTwo.getTime() - dateOne.getTime();
+  var days = time / (1000 * 3600 * 24);
+  if (
+    time <= 0 ||
+    !isValidDate(dateOne) ||
+    !isValidDate(dateTwo) ||
+    today > dateOne
+  ) {
+    alert('Enter valid dates!');
+  } else {
+    var totalPrice = parseInt(rentCar.carPrice) * 24 * days;
+    total.innerHTML = 'Your total fare is: ₹' + totalPrice;
+    // console.log(totalPrice);
+  }
 };
 
+var isValidDate = function (date) {
+  return date instanceof Date && !isNaN(date);
+};
 // const carBooked = function () {
 //     localStorage.setItem
 // };
+
+var carBooked = function () {
+  var d1 = document.getElementById('d1').value;
+  var d2 = document.getElementById('d2').value;
+  var dateOne = new Date(d1);
+  var dateTwo = new Date(d2);
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  var time = dateTwo.getTime() - dateOne.getTime();
+  var days = time / (1000 * 3600 * 24);
+  if (
+    time <= 0 ||
+    !isValidDate(dateOne) ||
+    !isValidDate(dateTwo) ||
+    today > dateOne
+  ) {
+    alert('Enter valid dates!');
+  } else {
+    var totalPrice = parseInt(rentCar.carPrice) * 24 * days;
+    rentCar.revenue = totalPrice;
+    rentCar.days = days;
+    localStorage.setItem('carDetails', JSON.stringify(rentCar));
+    updateCarDetails(totalPrice, days);
+    updateUserDetails(rentCar, d1, d2);
+    alert('Booking successful!');
+    location.href = './myride.html';
+  }
+};
+
+// function to update for particular car key to update information
+function updateCarDetails(price, bookingDays) {
+  var idb = indexedDB.open('Cars', 2);
+  idb.onsuccess = function (e) {
+    var request = idb.result;
+    var tx = request.transaction('CarsData', 'readwrite');
+    var store = tx.objectStore('CarsData');
+
+    // Retrieving record using its keys
+    const getRequest = store.get(carKey);
+    getRequest.onsuccess = function (event) {
+      var record = event.target.result;
+
+      // Modify the record
+      record.revenue += price;
+      record.days += bookingDays;
+
+      store.put(record, carKey);
+    };
+  };
+}
+
+// function to update users car history
+var userKey = JSON.parse(localStorage.getItem('userKey'));
+function updateUserDetails(rentCar, pickupDate, returnDate) {
+  var idb = indexedDB.open('Accounts', 2);
+  idb.onsuccess = function (e) {
+    var request = idb.result;
+    var tx = request.transaction('User', 'readwrite');
+    var store = tx.objectStore('User');
+
+    // Retrieving record using user key
+    const getData = store.get(userKey);
+    getData.onsuccess = function (event) {
+      var record = event.target.result;
+
+      // Modify the record
+      record.bookingHistory.push({
+        model: rentCar.carName,
+        days: rentCar.days,
+        totalPay: rentCar.revenue,
+        pickupDate: pickupDate.toLocaleString().split(',')[0],
+        returnDate: returnDate.toLocaleString().split(',')[0],
+      });
+
+      store.put(record, userKey);
+    };
+  };
+}

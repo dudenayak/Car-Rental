@@ -2,7 +2,7 @@ const carForm = document.querySelector('.carForm');
 const car_container = document.querySelector('.car_container');
 
 const carsData = function () {
-  var idb = indexedDB.open('Cars', 1);
+  var idb = indexedDB.open('Cars', 2);
 
   idb.onerror = function (e) {
     console.log('Error faced!');
@@ -57,7 +57,7 @@ const rent = function (key) {
   // console.log('rent action triggered');
   rentKey = key;
   console.log(rentKey);
-  var idb = indexedDB.open('Cars', 1);
+  var idb = indexedDB.open('Cars', 2);
   idb.onsuccess = function () {
     var request = idb.result;
     var transaction = request.transaction('CarsData', 'readwrite');
@@ -69,13 +69,14 @@ const rent = function (key) {
       carDetails = event.target.result;
       console.log(carDetails);
       localStorage.setItem('carDetails', JSON.stringify(carDetails));
+      localStorage.setItem('carKey', JSON.stringify(rentKey));
     };
   };
   location.href = 'booking.html';
 };
 
 function read() {
-  var idb = indexedDB.open('Cars', 1);
+  var idb = indexedDB.open('Cars', 2);
   idb.onsuccess = function () {
     var res = idb.result;
     var tx = res.transaction('CarsData', 'readonly');

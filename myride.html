@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
         rel="stylesheet">
-    <title>Car Rental Website</title>
-
+    <link rel="stylesheet" href="./index.css">
+    <title>My Ride</title>
 </head>
 
 <body>
@@ -24,14 +24,18 @@
             <li><a href="./myride.html">My Ride</a></li>
         </ul>
         <div class="header-btn">
-            <a href="logout.html" class="logout">Logout</a>
+            <a href="./logout.html" class="logout">Logout</a>
         </div>
     </header>
-    <section class="home" id="home">
-        <div class="text">
-            <h1><span>Looking</span> to <br>rent a car?</h1>
+
+    <section class="section featured-car" id="featured-car" style="margin:40px;">
+        <div class="carContainer">
+            <div class="title-wrapper">
+                <h2 class="h2 section-title" style="margin-left: 10px;">Your rented cars are listed here:</h2>
+            </div>
         </div>
     </section>
+
 
     <script>
         var check = localStorage.getItem("code")
@@ -42,6 +46,7 @@
             window.location.href = "login-signup.html"
         }
     </script>
+    <script src="./myride.js"></script>
 </body>
 
 </html>
