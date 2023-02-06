@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <title>Analytics</title>
+</head>
+
+<body>
+    <header>
+        <a href="../admin/availableCars.html" class="logo"><img src="../assets/img/jeep.png" alt=""> </a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="../admin/availableCars.html">Available Cars</a></li>
+            <li><a href="../admin/addCar.html">Add Car</a></li>
+            <li><a href="../admin/analytics.html">Analytics</a></li>
+        </ul>
+        <div class="header-btn">
+            <a href="../admin/logout.html" class="logout">Logout</a>
+        </div>
+    </header>
+
+    <div class="carContainer" style="margin: 100px;">
+        <div class="title-wrapper">
+            <h2 class="h2 section-title" style="margin-left: 10px;">Your analytics are listed here:
+            </h2>
+        </div>
+    </div>
+    <div class="graphBox">
+        <!-- <h2>text</h2> -->
+        <div class="box">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div class="box">
+            <canvas id="myChart1" width="00" height="00"></canvas>
+        </div>
+
+        <div class="box">
+            <canvas id="myChart2" width="400" height="400"></canvas>
+        </div>
+        <div class="box">
+            <canvas id="myChart3" width="00" height="00"></canvas>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="../admin/analytics.js"></script>
+<script>
+    var check = localStorage.getItem("codeAdmin")
+
+    if (check == "secretAdmin") {
+
+    } else {
+        window.location.href = "../admin/login-signupAdmin.html"
+    }
+</script>
+
+</html>

@@ -35,8 +35,9 @@ body{
 .container .cars{
     display: flex;
     align-items: center;
-    height: 800px;
+    height: 700px;
     width: 200%;
+    margin-top: 20px;
     transition: height 0.2s ease;
     /* margin-top: 100px; */
 }
@@ -47,6 +48,7 @@ body{
     padding: 30px;
     background-color: #fff;
     transition: margin-left 0.18s ease;
+    /* margin-top: 80px; */
 }
 
 .container.active .login{

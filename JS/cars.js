@@ -72,7 +72,7 @@ const rent = function (key) {
       localStorage.setItem('carKey', JSON.stringify(rentKey));
     };
   };
-  location.href = 'booking.html';
+  location.href = '../pages/booking.html';
 };
 
 function read() {
@@ -93,7 +93,7 @@ function read() {
         <li>
             <div class="featured-car-card" >
             <figure class="card-banner">
-                        <img src="./assets/images/car-1.jpg" alt="Toyota RAV4 2021" loading="lazy" width="440"
+                        <img src="../assets/images/car-1.jpg" alt="Toyota RAV4 2021" loading="lazy" width="440"
                             height="300" class="w-100">
                             <a href="#">${curRes.value.carImage}</a>
                     </figure>

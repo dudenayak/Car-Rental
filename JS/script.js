@@ -186,7 +186,7 @@ const loginAction = function () {
         console.log(currRes.value);
         localStorage.setItem('code', 'secret');
         localStorage.setItem('userKey', JSON.stringify(currRes.key));
-        window.location.href = './index.html';
+        window.location.href = '../pages/index.html';
       } else {
         currRes.continue();
         console.log('Enter valid details');

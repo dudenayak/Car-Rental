@@ -13,7 +13,7 @@ function getItem() {
         <li>
             <div class="featured-car-card" >
             <figure class="card-banner">
-                        <img src="./assets/images/car-1.jpg" alt="Toyota RAV4 2021" loading="lazy" width="440"
+                        <img src="../assets/images/car-1.jpg" alt="Toyota RAV4 2021" loading="lazy" width="440"
                             height="300" class="w-100">
                             <a href="#">${rentCar.carImage}</a>
                     </figure>
@@ -146,7 +146,7 @@ var carBooked = function () {
     updateCarDetails(totalPrice, days);
     updateUserDetails(rentCar, d1, d2);
     alert('Booking successful!');
-    location.href = './myride.html';
+    location.href = '../pages/myride.html';
   }
 };
 

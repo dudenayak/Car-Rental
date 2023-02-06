@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <title>All Data</title>
+</head>
+
+<header>
+    <a href="../admin/availableCars.html" class="logo"><img src="../assets/img/jeep.png" alt=""> </a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <ul class="navbar">
+        <li><a href="../admin/availableCars.html">Available Cars</a></li>
+        <li><a href="../admin/addCar.html">Add Car</a></li>
+        <li><a href="../admin/analytics.html">Analytics</a></li>
+    </ul>
+    <div class="header-btn">
+        <a href="../admin/logout.html" class="logout">Logout</a>
+    </div>
+</header>
+
+
+<div id="root">
+
+</div>
+<section class="section featured-car" id="featured-car" style="margin:40px;">
+    <div class="carContainer">
+
+        <div class="title-wrapper">
+            <h2 class="h2 section-title" style="margin-left: 10px;">Hello Admin, here are all the cars listed by you:
+            </h2>
+
+            <!-- <a href="#" class="featured-car-link">
+                <span>View more</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a> -->
+        </div>
+
+    </div>
+</section>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./availableCars.js"></script>
+<script>
+    var check = localStorage.getItem("codeAdmin")
+
+    if (check == "secretAdmin") {
+
+    } else {
+        window.location.href = "../admin/login-signupAdmin.html"
+    }
+</script>
+
+</html>
