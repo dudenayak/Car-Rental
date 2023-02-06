@@ -20,13 +20,13 @@
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navbar">
             <li><a href="./home.html">Home</a></li>
-            <li><a href="#ride">Ride</a></li>
+            <li><a href="#ride">My Ride</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#reviews">Reviews</a></li>
         </ul>
         <div class="header-btn">
-            <a href="#" class="logout">Logout</a>
+            <a href="logout.html" class="logout">Logout</a>
         </div>
     </header>
     <section class="home" id="home">
@@ -34,6 +34,16 @@
             <h1><span>Looking</span> to <br>rent a car?</h1>
         </div>
     </section>
+
+    <script>
+        var check = localStorage.getItem("code")
+
+        if (check == "secret") {
+
+        } else {
+            window.location.href = "login-signup.html"
+        }
+    </script>
 </body>
 
 </html>

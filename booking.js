@@ -73,7 +73,7 @@ function getItem() {
             </div>
         </li>
     </ul>    
-    <h1 id="displayTotal">Your total fare is:  </h1>
+    <h1 id="displayTotal">Your total fare is: ₹ </h1>    
 </section>
 <div class="form-container">
 <form action="">
@@ -84,9 +84,12 @@ function getItem() {
     <div class="input-box">
         <span>Return Date</span>
         <input type="date" id="d2">
-    </div>
-    <input type="button" value="Calculate fare" class="button" onclick="getDays()">
+    </div>    
+    <input type="button" value="Calculate fare" class="button" onclick="getDays()">    
 </form>
+</div>
+<div class="form-container">
+<input type="button" value="Book now" class="button" onclick="carBooked()">
 </div>
 </div>
 `;
@@ -106,5 +109,9 @@ const getDays = function () {
   console.log(d2);
   console.log(time);
   console.log(totalPrice);
-  total.innerHTML = totalPrice;
+  total.innerHTML = 'Your total fare is: ₹' + totalPrice;
 };
+
+// const carBooked = function () {
+//     localStorage.setItem
+// };

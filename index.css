@@ -162,9 +162,27 @@ header {
     color: #fff;
     font-size: 1rem;
     font-weight: 500;
+    cursor: pointer;
+}
+
+.form-container .button{
+    flex: 1 1 7rem;
+    padding: 10px 34px;
+    border: none;
+    border-radius: 0.5rem;
+    background: #474fa0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    width: auto;
+    cursor: pointer;
 }
 
 .form-container form .button:hover{
+    background: var(--main-color);
+}
+
+.form-container .button:hover{
     background: var(--main-color);
 }
 

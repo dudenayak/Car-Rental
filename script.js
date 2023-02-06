@@ -98,7 +98,8 @@ const loginAction = function () {
         currRes.value.password == loginForm[1].value
       ) {
         console.log(currRes.value);
-        window.location.href = './home.html';
+        localStorage.setItem('code', 'secret');
+        window.location.href = './index.html';
       } else {
         currRes.continue();
         console.log('Enter valid details');
