@@ -166,6 +166,7 @@ function updateCarDetails(price, bookingDays) {
       // Modify the record
       record.revenue += price;
       record.days += bookingDays;
+      // console.log(record.days);
 
       store.put(record, carKey);
     };

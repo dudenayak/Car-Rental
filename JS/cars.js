@@ -1,4 +1,4 @@
-const carForm = document.querySelector('.carForm');
+// const carForm = document.querySelector('.carForm');
 const car_container = document.querySelector('.car_container');
 
 const carsData = function () {
@@ -29,6 +29,8 @@ const carsData = function () {
         carMode: carForm[5].value,
         carPrice: carForm[6].value,
         carImage: carForm[7].value,
+        days: 0,
+        revenue: 0,
       });
       location.reload();
     } else {
@@ -85,10 +87,7 @@ function read() {
     cursor.onsuccess = function () {
       var curRes = cursor.result;
       if (curRes) {
-        // console.log(curRes);
         car_container.innerHTML += `
-        
-    
         <ul class="featured-car-list">
         <li>
             <div class="featured-car-card" >
@@ -150,9 +149,7 @@ function read() {
 
             </div>
         </li>
-    </ul>
-    
-  
+    </ul>    
         `;
         curRes.continue();
       }
