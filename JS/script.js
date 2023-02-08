@@ -1,4 +1,14 @@
-const container = document.querySelector('.container'),
+var username = document.getElementById('username');
+var email = document.getElementById('email');
+var password = document.getElementById('password');
+var cpassword = document.getElementById('cpassword');
+
+var errorUsername = document.getElementById('errorUsername');
+var errorEmail = document.getElementById('errorEmail');
+var errorPassword = document.getElementById('errorPassword');
+var errorCPassword = document.getElementById('errorCPassword');
+
+var container = document.querySelector('.container'),
   pwShowHide = document.querySelectorAll('.showHidePw'),
   pwFields = document.querySelectorAll('.password'),
   signUp = document.querySelector('.signup-link'),
@@ -33,96 +43,75 @@ login.addEventListener('click', () => {
   container.classList.remove('active');
 });
 
-// // REGISTRATION FORM VALIDATIONS
-// // USERNAME
-// var username = document.getElementById('username');
-// var confirmUsername = document.getElementById('errorUsername');
+// REGISTRATION FORM VALIDATIONS
 
-// var isValidUsername = (username) => {
-//   var regex = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
-//   // console.log(username.match(regex));
-//   return username.match(regex);
-// };
+// USERNAME
+var isValidUsername = (username) => {
+  var regex = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
+  // console.log(username.match(regex));
+  return username.match(regex);
+};
 
-// username.addEventListener('input', (e) => {
-//   if (username.value == '') {
-//     // username.parentElement.classList.remove('error');
-//     confirmUsername.innerHTML = 'Username is required';
-//   } else if (!isValidUsername(username.value)) {
-//     // username.parentElement.classList.remove('error');
-//     confirmUsername.innerHTML =
-//       'Provide a valid alphanumeric username of length 8-30';
-//   } else {
-//     // username.parentElement.classList.add('error');
-//   }
-// });
+username.addEventListener('input', (e) => {
+  if (username.value == '') {
+    errorUsername.innerHTML = 'Username is required';
+  } else if (!isValidUsername(username.value)) {
+    errorUsername.innerHTML =
+      'Provide a valid username having alphanumeric values.';
+  } else {
+    errorUsername.innerHTML = '';
+  }
+});
 
-// // EMAIL
-// var email = document.getElementById('email');
-// var confirmEmail = document.getElementById('errorEmail');
+// EMAIL
+var isValidEmail = (email) => {
+  var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return email.match(regex);
+};
 
-// var isValidEmail = (email) => {
-//   var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-//   return email.match(regex);
-// };
+email.addEventListener('input', (e) => {
+  if (email.value == '') {
+    errorEmail.innerHTML = 'Email is required';
+  } else if (!isValidEmail(email.value)) {
+    errorEmail.innerHTML = 'Provide a valid email address.';
+  } else {
+    errorEmail.innerHTML = '';
+  }
+});
 
-// email.addEventListener('input', (e) => {
-//   if (email.value == '') {
-//     // email.parentElement.classList.remove('error');
-//     confirmEmail.innerHTML = 'Email is required';
-//   } else if (!isValidEmail(email.value)) {
-//     // email.parentElement.classList.remove('error');
-//     confirmEmail.innerHTML =
-//       'Please enter your email address in format: yourname@example.com';
-//   } else {
-//     // email.parentElement.classList.add('error');
-//   }
-// });
+// PASSWORD
+var isValidPassword = (password) => {
+  var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,20}$/;
+  return password.match(regex);
+};
 
-// // PASSWORD
-// var password = document.getElementById('password');
-// var confirmPassword = document.getElementById('errorPassword');
+password.addEventListener('input', (e) => {
+  if (password.value == '') {
+    errorPassword.innerHTML = 'Password is required';
+  } else if (!isValidPassword(password.value)) {
+    errorPassword.innerHTML =
+      'Password must be of at least 8 characters that include at least 1 lowercase, 1 uppercase, 1 special character and 1 number';
+  } else {
+    errorPassword.innerHTML = '';
+  }
+});
 
-// var isValidPassword = (password) => {
-//   var regex =
-//     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$/;
-//   return password.match(regex);
-// };
-
-// password.addEventListener('input', (e) => {
-//   if (password.value == '') {
-//     // password.parentElement.classList.remove('error');
-//     confirmPassword.innerHTML = 'Password is required';
-//   } else if (!isValidPassword(password.value)) {
-//     // password.parentElement.classList.remove('error');
-//     confirmPassword.innerHTML =
-//       'Password must be more than 8 letters including 1 lowercase, 1 uppercase, 1 special character and 1 number';
-//   } else {
-//     // password.parentElement.classList.add('error');
-//   }
-// });
-
-// // CONFIRM PASSWORD
-// var cPassword = document.getElementById('confirm-password');
-// var confirmcPassword = document.getElementById('errorConfirmPassword');
-
-// cPassword.addEventListener('input', (e) => {
-//   if (cPassword.value == '') {
-//     // cPassword.parentElement.classList.remove('error');
-//     confirmcPassword.innerHTML = 'Please confirm your password';
-//   } else if (cPassword.value != password.value) {
-//     // cPassword.parentElement.classList.remove('error');
-//     confirmcPassword.innerHTML = 'Passwords do not match';
-//   } else {
-//     // cPassword.parentElement.classList.add('error');
-//   }
-// });
+// CONFIRM PASSWORD
+cpassword.addEventListener('input', (e) => {
+  if (cpassword.value == '') {
+    errorCPassword.innerHTML = 'Please confirm your password.';
+  } else if (cpassword.value != password.value) {
+    errorCPassword.innerHTML = 'Passwords does not match.';
+  } else {
+    errorCPassword.innerHTML = '';
+  }
+});
 
 // REGISTRATION FORM SUBMISSION: STORE DATA IN INDEXEDDB
 //Indexed DB code
-const form = document.querySelector('.signupForm');
+var form = document.querySelector('.signupForm');
 
-const signupAction = function () {
+var signupAction = function () {
   var idb = indexedDB.open('Accounts', 2);
 
   idb.onerror = function (e) {
@@ -134,26 +123,49 @@ const signupAction = function () {
     request.createObjectStore('User', { autoIncrement: true });
   };
 
+  var foundUsername = false;
+  var foundEmail = false;
+
   idb.onsuccess = function (e) {
     // e.preventDefault();
     var request = idb.result;
     var tx = request.transaction('User', 'readwrite');
     var store = tx.objectStore('User');
+    var cursor = store.openCursor();
 
-    if (checkEmpty()) {
-      alert('User registered successfully! Login NOW!');
-      store.put({
-        name: form[0].value,
-        email: form[1].value,
-        password: form[2].value,
-        bookingHistory: [],
-        // confirmPassword: form[3].value
-      });
-      location.reload();
-    } else {
-      alert('Fill up all fields!');
-      e.preventDefault();
-    }
+    cursor.onsuccess = function () {
+      let curRes = cursor.result;
+      if (curRes) {
+        if (curRes.value.name == form[0].value) {
+          foundUsername = true;
+        }
+        if (curRes.value.email == form[1].value) {
+          foundEmail = true;
+        }
+        curRes.continue();
+      } else {
+        if (foundUsername) {
+          alert('Username already exists!');
+        } else if (foundEmail) {
+          alert('Email already exists!');
+        } else {
+          if (checkEmpty()) {
+            alert('User registered successfully! Login NOW!');
+            store.put({
+              name: form[0].value,
+              email: form[1].value,
+              password: form[2].value,
+              bookingHistory: [],
+              // confirmPassword: form[3].value
+            });
+            location.reload();
+          } else {
+            alert('Fill up all fields!');
+            e.preventDefault();
+          }
+        }
+      }
+    };
   };
 };
 
@@ -167,8 +179,8 @@ function checkEmpty() {
 }
 
 // LOGIN VIA INDEXED DB
-const loginForm = document.querySelector('.loginForm');
-const loginAction = function () {
+var loginForm = document.querySelector('.loginForm');
+var loginAction = function () {
   var idb = indexedDB.open('Accounts', 2);
 
   idb.onsuccess = function (e) {

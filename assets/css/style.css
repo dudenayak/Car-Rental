@@ -262,10 +262,11 @@ button, a { transition: var(--transition); }
 
 .section .car_container {
   /* height: 70px; */
-  /* display: flex; */
   /* justify-content: space-between; */
-  /* align-items: center; */
-  /* flex-direction: column; */
+  /* display: flex;
+  align-items: center;
+  flex-direction: column;  
+  width: 900%; */
 }
 
 
@@ -454,6 +455,7 @@ button, a { transition: var(--transition); }
   /* display: grid; */
   grid-template-columns: minmax(1, 1fr);
   gap: 30px;
+  width: 400px;
 }
 
 .featured-car-card {
@@ -517,7 +519,7 @@ button, a { transition: var(--transition); }
 }
 
 .featured-car-card .card-list-item {
-  display: flex;
+  display: grid;
   align-items: center;
   gap: 8px;
 }

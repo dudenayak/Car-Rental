@@ -73,10 +73,10 @@
     function calculateDays() {
         var pickupDate = document.getElementById("d1").value;
         var returnDate = document.getElementById("d2").value;
-        const dateOne = new Date(d1);
-        const dateTwo = new Date(d2);
-        const time = Math.abs(dateTwo - dateOne);
-        const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+        var dateOne = new Date(d1);
+        var dateTwo = new Date(d2);
+        var time = Math.abs(dateTwo - dateOne);
+        var days = Math.ceil(time / (1000 * 60 * 60 * 24));
     }
     console.log(calculateDays())
 </script> -->

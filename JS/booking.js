@@ -118,7 +118,7 @@ var getDays = function () {
 var isValidDate = function (date) {
   return date instanceof Date && !isNaN(date);
 };
-// const carBooked = function () {
+// var carBooked = function () {
 //     localStorage.setItem
 // };
 
@@ -159,7 +159,7 @@ function updateCarDetails(price, bookingDays) {
     var store = tx.objectStore('CarsData');
 
     // Retrieving record using its keys
-    const getRequest = store.get(carKey);
+    var getRequest = store.get(carKey);
     getRequest.onsuccess = function (event) {
       var record = event.target.result;
 
@@ -183,7 +183,7 @@ function updateUserDetails(rentCar, pickupDate, returnDate) {
     var store = tx.objectStore('User');
 
     // Retrieving record using user key
-    const getData = store.get(userKey);
+    var getData = store.get(userKey);
     getData.onsuccess = function (event) {
       var record = event.target.result;
 

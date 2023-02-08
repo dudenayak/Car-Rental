@@ -1,5 +1,5 @@
-const carForm = document.querySelector('.carForm');
-const carsData = function () {
+var carForm = document.querySelector('.carForm');
+var carsData = function () {
   var idb = indexedDB.open('Cars', 2);
 
   idb.onerror = function (e) {

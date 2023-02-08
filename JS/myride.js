@@ -8,7 +8,7 @@ function read() {
     let transaction = request.transaction('User', 'readonly');
     let store = transaction.objectStore('User');
 
-    const getData = store.get(userKey);
+    var getData = store.get(userKey);
     getData.onsuccess = function (event) {
       var record = event.target.result;
       basket = record.bookingHistory;

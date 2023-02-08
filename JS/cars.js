@@ -1,7 +1,7 @@
-// const carForm = document.querySelector('.carForm');
-const car_container = document.querySelector('.car_container');
+// var carForm = document.querySelector('.carForm');
+var car_container = document.querySelector('.car_container');
 
-const carsData = function () {
+var carsData = function () {
   var idb = indexedDB.open('Cars', 2);
 
   idb.onerror = function (e) {
@@ -55,7 +55,7 @@ function checkEmpty() {
 
 var rentKey;
 var carDetails;
-const rent = function (key) {
+var rent = function (key) {
   // console.log('rent action triggered');
   rentKey = key;
   console.log(rentKey);
@@ -64,7 +64,7 @@ const rent = function (key) {
     var request = idb.result;
     var transaction = request.transaction('CarsData', 'readwrite');
     var store = transaction.objectStore('CarsData');
-    const data = store.get(rentKey);
+    var data = store.get(rentKey);
     // console.log(data);
     data.onsuccess = function (event) {
       // console.log(event.target.result);
